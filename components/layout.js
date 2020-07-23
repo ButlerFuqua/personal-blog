@@ -14,6 +14,10 @@ const MenuToggle = styled.button`
     top: 0;
     right: 0;
     z-index: 2;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 
 export default function Layout({ children, home }) {
