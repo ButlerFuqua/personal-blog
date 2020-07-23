@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     width: 280px;
-    background: #ccc;
     overflow: hidden;
 
     @media (max-width: 768px) {
@@ -33,15 +32,26 @@ const Li = styled.li`
 
     &:hover {
         background: purple;
-        color: #fff;
+        color: white;
     }
 `
+
+const items = [
+    {
+        label: 'Blog'
+    },
+    {
+        label: 'Resume'
+    }
+]
 
 export default function Sidebar({ shown }) {
     return (
         <Container className={shown ? 'shown' : ''}>
             <Ul>
-                <Li>item</Li>
+                {items.map(item => (
+                    <Li key={items.indexOf(item)}>{item.label}</Li>
+                ))}
             </Ul>
         </Container>
     )

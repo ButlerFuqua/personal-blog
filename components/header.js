@@ -29,7 +29,32 @@ const BannerListUL = styled.ul`
 const Li = styled.li`
     list-style: none;
     padding: .5rem;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+        background: purple;
+        color: white;
+    }
 `
+const Icon = styled.i`
+    margin-right: 5px;
+`
+
+const bannerListItems = [
+    {
+        label: 'GitHub',
+        icon: 'fab fa-github'
+    },
+    {
+        label: 'LinkedIn',
+        icon: 'fab fa-linkedin'
+    },
+    {
+        label: 'Instagram',
+        icon: 'fab fa-instagram'
+    }
+]
 
 export default function Header({ name, home }) {
     return (
@@ -42,18 +67,12 @@ export default function Header({ name, home }) {
                     </div>
                     <BannerList>
                         <BannerListUL>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
-                            <Li>content</Li>
+                            {bannerListItems.map(bItem => (
+                                <Li key={bannerListItems.indexOf(bItem)}>
+                                    <Icon className={bItem.icon}></Icon>
+                                    {bItem.label}
+                                </Li>
+                            ))}
                         </BannerListUL>
                     </BannerList>
                 </>
