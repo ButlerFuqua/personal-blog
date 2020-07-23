@@ -25,3 +25,14 @@ img {
   max-width: 100%;
   display: block;
 }
+
+main {
+  display: flex;
+}
+main #pageWrapper {
+  flex:1;
+}
+
+#pageWrapper {
+  padding: .5rem;
+}

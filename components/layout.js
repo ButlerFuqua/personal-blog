@@ -1,13 +1,25 @@
 import Head from 'next/head'
 import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Header from './header'
+import Sidebar from '../components/sidebar'
+import { useState } from 'react'
+import styled from 'styled-components'
 
 const name = 'Butler Fuqua'
 export const siteTitle = 'Personal website and blog'
 
+const MenuToggle = styled.button`
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+`
+
 export default function Layout({ children, home }) {
+
+    const [showSidebar, setshowSidebar] = useState(false)
+
     return (
         <div className={styles.container}>
             <Head>
@@ -26,14 +38,23 @@ export default function Layout({ children, home }) {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <Header name={name} home={home} />
-            <main>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
+            <MenuToggle onClick={() => setshowSidebar(!showSidebar)} >Menu</MenuToggle>
+
+            <main>
+                <Sidebar shown={showSidebar} />
+                <div id="pageWrapper">
+                    {children}
                 </div>
-            )}
-        </div>
+            </main>
+            {
+                !home && (
+                    <div className={styles.backToHome}>
+                        <Link href="/">
+                            <a>← Back to home</a>
+                        </Link>
+                    </div>
+                )
+            }
+        </div >
     )
 }
