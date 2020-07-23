@@ -35,6 +35,15 @@ const Li = styled.li`
     &:hover {
         background: purple;
         color: white;
+
+        & a {
+            color: white;
+        }
+    }
+
+    & a {
+        color: purple;
+        text-decoration: none;
     }
 `
 const Icon = styled.i`
@@ -44,15 +53,13 @@ const Icon = styled.i`
 const bannerListItems = [
     {
         label: 'GitHub',
-        icon: 'fab fa-github'
+        icon: 'fab fa-github',
+        link: 'https://www.github.com/butlerfuqua'
     },
     {
         label: 'LinkedIn',
-        icon: 'fab fa-linkedin'
-    },
-    {
-        label: 'Instagram',
-        icon: 'fab fa-instagram'
+        icon: 'fab fa-linkedin',
+        link: 'https://www.linkedin.com/in/butler-fuqua-096462133/'
     }
 ]
 
@@ -69,8 +76,10 @@ export default function Header({ name, home }) {
                         <BannerListUL>
                             {bannerListItems.map(bItem => (
                                 <Li key={bannerListItems.indexOf(bItem)}>
-                                    <Icon className={bItem.icon}></Icon>
-                                    {bItem.label}
+                                    <a href={bItem.link} target="_blank">
+                                        <Icon className={bItem.icon}></Icon>
+                                        {bItem.label}
+                                    </a>
                                 </Li>
                             ))}
                         </BannerListUL>
