@@ -3,6 +3,14 @@ import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import styled from 'styled-components'
 
+
+const HeaderEl = styled.header`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+`
+
 const Title = styled.h1`
     font-size: 2.5rem;
     line-height: 1.2;
@@ -80,7 +88,7 @@ const bannerListItems = [
 
 export default function Header({ name, home }) {
     return (
-        <header className={styles.header}>
+        <HeaderEl className={styles.header}>
             {home ? (
                 <>
                     <div>
@@ -109,7 +117,7 @@ export default function Header({ name, home }) {
                         </h2>
                     </>
                 )}
-        </header>
+        </HeaderEl>
 
     )
 
