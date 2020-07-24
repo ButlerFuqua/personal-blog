@@ -22,13 +22,17 @@ const Title = styled.h1`
     font-size: 2.5rem;
     line-height: 1.2;
     font-weight: 800;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
 `
 
 const Subtitle = styled.h2`
     margin: 0;
     font-weight: 300;
     font-size: 1.3rem;
+
+    @media(max-width: 768px){
+        display: none;
+    }
 `
 const BannerList = styled.div`
     display: flex;

@@ -71,6 +71,10 @@ const items = [
         path: '/about'
     },
     {
+        label: 'Contact',
+        path: '/contact'
+    },
+    {
         label: 'Resume',
         path: 'https://docs.google.com/document/d/1CjlbPXBQP9zeULQf5EMcvJdgwlOcKAJ1dXVVfuW6UZM/export?format=pdf'
     }
