@@ -92,16 +92,17 @@ export default function Sidebar({ shown, handleSidebar }) {
             <Ul>
                 {items.map(item => (
                     <Li
-                        onClick={() => item.path.indexOf('http') === -1 ? Router.push(item.path) : ''}
+                        onClick={() => item.path.indexOf('http') === -1
+                            ? Router.push(item.path)
+                            : window.open(item.path)
+                        }
                         key={items.indexOf(item)}
                     >
-                        {item.icon ? <i className={item.icon}></i> : ''}
-
-                        {item.path.indexOf('http') === -1
-                            ? item.label
-                            : <a onClick={() => shown ? handleSidebar() : ''} href={item.path} target="_blank"> {item.label}</a>
+                        {item.icon
+                            ? <i style={{ marginRight: '5px' }} className={item.icon}></i>
+                            : ''
                         }
-
+                        {item.label}
                     </Li>
                 ))}
             </Ul>
