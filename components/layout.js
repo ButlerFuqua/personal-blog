@@ -39,7 +39,7 @@ export default function Layout({ children, home }) {
             <MenuToggle showSidebar={showSidebar} handleSidebar={handleSidebar} >Menu</MenuToggle>
 
             <main>
-                <Sidebar shown={showSidebar} />
+                <Sidebar shown={showSidebar} handleSidebar={handleSidebar} />
                 <div id="pageWrapper">
                     {children}
                 </div>

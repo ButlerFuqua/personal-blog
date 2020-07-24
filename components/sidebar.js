@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Container = styled.div`
     width: 280px;
-    overflow: hidden;
+    // overflow: hidden;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -45,7 +45,10 @@ const Li = styled.li`
     padding: .5rem;
     cursor: pointer;
     border-radius: 3px;
+   
+   
     transition: .3s;
+    transform: scale(1.0);
 
     & a {
         color: inherit;
@@ -53,8 +56,9 @@ const Li = styled.li`
     }
 
     &:hover {
-        background: purple;
-        color: white;
+        transform: scale(1.05);
+        box-shadow: 0px 0px 20px 6px rgba(0,0,0, .1);
+    
     }
 `
 
@@ -73,7 +77,7 @@ const items = [
     }
 ]
 
-export default function Sidebar({ shown }) {
+export default function Sidebar({ shown, handleSidebar }) {
     return (
         <Container className={shown ? 'shown' : ''}>
             <Ul>
@@ -82,10 +86,10 @@ export default function Sidebar({ shown }) {
                         {item.path.indexOf('http') === -1
                             ? (
                                 <Link href={item.path}>
-                                    <a> {item.label}</a>
+                                    <a onClick={() => shown ? handleSidebar() : ''}> {item.label}</a>
                                 </Link>
                             )
-                            : <a href={item.path} target="_blank"> {item.label}</a>
+                            : <a onClick={() => shown ? handleSidebar() : ''} href={item.path} target="_blank"> {item.label}</a>
                         }
                     </Li>
                 ))}
