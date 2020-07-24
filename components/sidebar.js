@@ -79,7 +79,7 @@ export default function Sidebar({ shown }) {
             <Ul>
                 {items.map(item => (
                     <Li key={items.indexOf(item)}>
-                        {item.path.indexOf('https') === -1
+                        {item.path.indexOf('http') === -1
                             ? (
                                 <Link href={item.path}>
                                     <a> {item.label}</a>
