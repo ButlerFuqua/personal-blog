@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import Link from 'next/link'
+import Router from 'next/router'
+
 
 const Container = styled.div`
     width: 280px;
@@ -67,6 +68,10 @@ const items = [
         path: '/'
     },
     {
+        label: 'Work',
+        path: '/work'
+    },
+    {
         label: 'About',
         path: '/about'
     },
@@ -76,6 +81,7 @@ const items = [
     },
     {
         label: 'Resume',
+        icon: 'fa fa-arrow-circle-down',
         path: 'https://docs.google.com/document/d/1CjlbPXBQP9zeULQf5EMcvJdgwlOcKAJ1dXVVfuW6UZM/export?format=pdf'
     }
 ]
@@ -85,18 +91,20 @@ export default function Sidebar({ shown, handleSidebar }) {
         <Container className={shown ? 'shown' : ''}>
             <Ul>
                 {items.map(item => (
-                    <Li key={items.indexOf(item)}>
+                    <Li
+                        onClick={() => item.path.indexOf('http') === -1 ? Router.push(item.path) : ''}
+                        key={items.indexOf(item)}
+                    >
+                        {item.icon ? <i className={item.icon}></i> : ''}
+
                         {item.path.indexOf('http') === -1
-                            ? (
-                                <Link href={item.path}>
-                                    <a onClick={() => shown ? handleSidebar() : ''}> {item.label}</a>
-                                </Link>
-                            )
+                            ? item.label
                             : <a onClick={() => shown ? handleSidebar() : ''} href={item.path} target="_blank"> {item.label}</a>
                         }
+
                     </Li>
                 ))}
             </Ul>
-        </Container>
+        </Container >
     )
 }
