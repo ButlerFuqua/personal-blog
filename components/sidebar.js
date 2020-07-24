@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
+import { useState } from 'react'
 
 
 const Container = styled.div`
@@ -50,6 +51,7 @@ const Li = styled.li`
     transition: .3s;
     transform: scale(1.0);
 
+
     & a {
         color: inherit;
         text-decoration: none;
@@ -60,6 +62,13 @@ const Li = styled.li`
         box-shadow: 0px 0px 20px 6px rgba(0,0,0, .1);
     
     }
+
+    &.active {
+        background: purple;
+
+    }
+
+    
 `
 
 const items = [
@@ -86,16 +95,31 @@ const items = [
     }
 ]
 
-export default function Sidebar({ shown, handleSidebar }) {
+export default function Sidebar({ shown }) {
+
+
+    const router = useRouter()
+    const { pathname } = router
+
+    const [activeItem, setActiveItem] = useState(pathname)
+
+    const handleSelectItem = item => {
+
+        setActiveItem(item.path)
+
+        if (item.path.indexOf('http') === -1) Router.push(item.path)
+        else window.open(item.path)
+
+    }
+
+
     return (
         <Container className={shown ? 'shown' : ''}>
             <Ul>
                 {items.map(item => (
                     <Li
-                        onClick={() => item.path.indexOf('http') === -1
-                            ? Router.push(item.path)
-                            : window.open(item.path)
-                        }
+                        className={activeItem === item.path ? 'active' : ''}
+                        onClick={() => handleSelectItem(item)}
                         key={items.indexOf(item)}
                     >
                         {item.icon

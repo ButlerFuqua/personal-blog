@@ -6,15 +6,19 @@ import Sidebar from '../components/sidebar'
 import { useState } from 'react'
 import styled from 'styled-components'
 import MenuToggle from '../components/menuToggle'
+import Router from 'next/router'
+
 
 const name = 'Butler Fuqua'
 export const siteTitle = 'Personal website and blog'
 
 
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, test }) {
 
     const [showSidebar, setshowSidebar] = useState(false)
+    const [activeItem, setActiveItem] = useState('/')
+
 
     const handleSidebar = () => setshowSidebar(!showSidebar)
 
@@ -41,6 +45,7 @@ export default function Layout({ children, home }) {
             <main>
                 <Sidebar shown={showSidebar} handleSidebar={handleSidebar} />
                 <div id="pageWrapper">
+                    {'test ' + test}
                     {children}
                 </div>
             </main>
