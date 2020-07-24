@@ -5,6 +5,9 @@ import styled from 'styled-components'
 
 
 const HeaderEl = styled.header`
+    position: sticky;
+    top: 0;
+    background: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -95,8 +98,7 @@ const bannerListItems = [
         icon: 'fab fa-linkedin',
         link: 'https://www.linkedin.com/in/butler-fuqua-096462133/',
         color: '#0077B5'
-    }
-    ,
+    },
     {
         icon: 'fab fa-codepen',
         link: 'https://codepen.io/butlerfuqua',
