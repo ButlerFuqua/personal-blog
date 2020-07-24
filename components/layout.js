@@ -55,7 +55,10 @@ export default function Layout({ children, home, test }) {
                 !home && (
                     <div className={styles.backToHome}>
                         <Link href={pathname.indexOf('/projects/') > -1 ? '/work' : '/'}>
-                            <a>← Back</a>
+                            <a>
+                                <i style={{ marginRight: '2px' }} className="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                                 Back
+                                 </a>
                         </Link>
                     </div>
                 )
