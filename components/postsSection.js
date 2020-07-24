@@ -18,14 +18,14 @@ const PostsList = styled.ul`
 
 `
 
-export default function PostsSection({ posts, title }) {
+export default function PostsSection({ posts, title, type }) {
     return (
         <>
             <h2 >{title}</h2>
             <PostsList >
                 {posts.map(({ id, date, title }) => (
                     <li key={id}>
-                        <Link href="/posts/[id]" as={`/posts/${id}`}>
+                        <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
                             <a>{title}</a>
                         </Link>
                         <br />

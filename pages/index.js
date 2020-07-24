@@ -21,7 +21,7 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <PostsSection title="Posts" posts={allPostsData} />
+        <PostsSection title="Posts" type="posts" posts={allPostsData} />
       </section>
     </Layout>
   )

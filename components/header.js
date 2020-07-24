@@ -8,6 +8,7 @@ const HeaderEl = styled.header`
     position: sticky;
     top: 0;
     background: white;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -112,7 +113,7 @@ const bannerListItems = [
 
 export default function Header({ name, home }) {
     return (
-        <HeaderEl className={styles.header}>
+        <HeaderEl >
             {home ? (
                 <>
                     <div>

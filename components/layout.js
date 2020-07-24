@@ -6,7 +6,7 @@ import Sidebar from '../components/sidebar'
 import { useState } from 'react'
 import styled from 'styled-components'
 import MenuToggle from '../components/menuToggle'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 
 
 const name = 'Butler Fuqua'
@@ -18,6 +18,9 @@ export default function Layout({ children, home, test }) {
 
     const [showSidebar, setshowSidebar] = useState(false)
     const [activeItem, setActiveItem] = useState('/')
+
+    const router = useRouter()
+    const { pathname } = router
 
 
     const handleSidebar = () => setshowSidebar(!showSidebar)
@@ -51,8 +54,8 @@ export default function Layout({ children, home, test }) {
             {
                 !home && (
                     <div className={styles.backToHome}>
-                        <Link href="/">
-                            <a>← Back to home</a>
+                        <Link href={pathname.indexOf('/projects/') > -1 ? '/work' : '/'}>
+                            <a>← Back</a>
                         </Link>
                     </div>
                 )
