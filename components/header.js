@@ -9,6 +9,10 @@ const HeaderEl = styled.header`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
+
+    @media(max-width: 768px){
+        flex-direction: column;
+    }
 `
 
 const Title = styled.h1`
@@ -33,19 +37,31 @@ const BannerListUL = styled.ul`
     text-align: right;
     display: flex;
     flex-wrap: wrap;
+    
+
+    @media(max-width: 768px){
+        padding: 0;
+    }
 `
 const Li = styled.li`
     list-style: none;
-    padding: .5rem;
     cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: .2s;
+    border-radius: 2px;
 
     &:hover {
         background: ${props => props.bg};
         color: white;
 
+
         & a {
             color: white;
+          
         }
 
         & i {
@@ -57,6 +73,11 @@ const Li = styled.li`
     & a {
         color: black;
         text-decoration: none;
+        text-align: center;
+    }
+
+    & i {
+        margin: auto;
     }
 `
 const Icon = styled.i`
@@ -66,22 +87,19 @@ const Icon = styled.i`
 
 const bannerListItems = [
     {
-        label: 'GitHub',
         icon: 'fab fa-github',
         link: 'https://www.github.com/butlerfuqua',
         color: '#24292E'
     },
     {
-        label: 'LinkedIn',
         icon: 'fab fa-linkedin',
         link: 'https://www.linkedin.com/in/butler-fuqua-096462133/',
         color: '#0077B5'
     }
     ,
     {
-        label: 'Codepen',
         icon: 'fab fa-codepen',
-        link: 'https://www.linkedin.com/in/butler-fuqua-096462133/',
+        link: 'https://codepen.io/butlerfuqua',
         color: '#47cf73'
     }
 ]

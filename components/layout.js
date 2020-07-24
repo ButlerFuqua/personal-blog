@@ -5,24 +5,18 @@ import Header from './header'
 import Sidebar from '../components/sidebar'
 import { useState } from 'react'
 import styled from 'styled-components'
+import MenuToggle from '../components/menuToggle'
 
 const name = 'Butler Fuqua'
 export const siteTitle = 'Personal website and blog'
 
-const MenuToggle = styled.button`
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 2;
 
-    @media (min-width: 768px) {
-        display: none;
-    }
-`
 
 export default function Layout({ children, home }) {
 
     const [showSidebar, setshowSidebar] = useState(false)
+
+    const handleSidebar = () => setshowSidebar(!showSidebar)
 
     return (
         <div className={styles.container}>
@@ -42,7 +36,7 @@ export default function Layout({ children, home }) {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <Header name={name} home={home} />
-            <MenuToggle onClick={() => setshowSidebar(!showSidebar)} >Menu</MenuToggle>
+            <MenuToggle showSidebar={showSidebar} handleSidebar={handleSidebar} >Menu</MenuToggle>
 
             <main>
                 <Sidebar shown={showSidebar} />
