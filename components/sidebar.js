@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 const Container = styled.div`
     width: 280px;
-    // overflow: hidden;
 
     @media (max-width: 768px) {
         width: 100%;
