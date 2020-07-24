@@ -54,13 +54,15 @@ const BannerListUL = styled.ul`
 const Li = styled.li`
     list-style: none;
     cursor: pointer;
-    width: 35px;
-    height: 35px;
+    min-width: 50px;
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: .2s;
     border-radius: 2px;
+    font-size: 1.5rem;
+
 
     &:hover {
         background: ${props => props.bg};
@@ -95,14 +97,14 @@ const Icon = styled.i`
 
 const bannerListItems = [
     {
-        icon: 'fab fa-github',
-        link: 'https://www.github.com/butlerfuqua',
-        color: '#24292E'
-    },
-    {
         icon: 'fab fa-linkedin',
         link: 'https://www.linkedin.com/in/butler-fuqua-096462133/',
         color: '#0077B5'
+    },
+    {
+        icon: 'fab fa-github',
+        link: 'https://www.github.com/butlerfuqua',
+        color: '#24292E'
     },
     {
         icon: 'fab fa-codepen',
