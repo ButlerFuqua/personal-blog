@@ -45,7 +45,6 @@ export default function Layout({ children, home, test }) {
             <main>
                 <Sidebar shown={showSidebar} handleSidebar={handleSidebar} />
                 <div id="pageWrapper">
-                    {'test ' + test}
                     {children}
                 </div>
             </main>

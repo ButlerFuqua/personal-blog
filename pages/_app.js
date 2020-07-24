@@ -4,6 +4,6 @@ import '../styles/global.css'
 
 export default function App({ Component, pageProps }) {
     return (
-        <Component test="test" {...pageProps} />
+        <Component {...pageProps} />
     )
 }

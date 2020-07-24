@@ -64,8 +64,7 @@ const Li = styled.li`
     }
 
     &.active {
-        background: purple;
-
+        border-left: 4px solid purple;
     }
 
     
@@ -105,9 +104,12 @@ export default function Sidebar({ shown }) {
 
     const handleSelectItem = item => {
 
-        setActiveItem(item.path)
-
-        if (item.path.indexOf('http') === -1) Router.push(item.path)
+        // Internal link
+        if (item.path.indexOf('http') === -1) {
+            Router.push(item.path) // navigate
+            setActiveItem(item.path) // show in UI
+        }
+        // External link
         else window.open(item.path)
 
     }
