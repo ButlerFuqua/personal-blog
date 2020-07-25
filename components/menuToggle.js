@@ -4,7 +4,7 @@ const Button = styled.button`
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 2;
+    z-index: 999;
     background: white;
     border: none;
     transitin: .2s;
