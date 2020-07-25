@@ -1,4 +1,4 @@
-# [Butlerfuqua.com](https://www.butlerfuqua.com)
+# [ButlerFuqua.com](https://butlerfuqua.com/)
 
 ## A personal website and blog.
 
