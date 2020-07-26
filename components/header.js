@@ -110,6 +110,11 @@ const bannerListItems = [
         icon: 'fab fa-codepen',
         link: 'https://codepen.io/butlerfuqua',
         color: '#47cf73'
+    },
+    {
+        icon: 'fa fa-code',
+        link: 'https://repl.it/@butlerfuqua',
+        color: '#192333'
     }
 ]
 
