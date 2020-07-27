@@ -46,6 +46,7 @@ const Li = styled.li`
     padding: .5rem;
     cursor: pointer;
     border-radius: 3px;
+    margin: 1rem 0;
    
    
     transition: .3s;
@@ -59,12 +60,21 @@ const Li = styled.li`
 
     &:hover {
         transform: scale(1.05);
-        box-shadow: 0px 0px 20px 6px rgba(0,0,0, .1);
+        box-shadow: -3px 3px 2px 0px rgba(0,0,0,.5);
     
     }
 
     &.active {
         border-left: 4px solid purple;
+        // border-bottom: 4px solid purple;
+
+        // &::before{
+        //     content: '';
+        //     height: 15px;
+        //     width: 15px;
+        //     background: purple;
+        //     border-radius: 50%;
+        // }
     }
 
     
