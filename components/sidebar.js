@@ -4,11 +4,12 @@ import { useState } from 'react'
 
 
 const Container = styled.div`
-    width: 280px;
+    width: 200px;
+    height: 100%;
+    background: white;
 
     @media (max-width: 768px) {
         width: 100%;
-        height: 100%;
         position: fixed;
         background: rgba(255, 255, 255, 0.9);
         z-index: 99;
@@ -37,18 +38,25 @@ const Container = styled.div`
 const Ul = styled.ul`
     margin: 0;
     padding: 0;
+    width: 100%;
 `
 
 const Li = styled.li`
     list-style: none;
     padding: .5rem;
     cursor: pointer;
-    border-radius: 3px;
     margin: 1rem 0;
+    position: relative;
+    height: 40px;
+    width: 100%;
    
    
     transition: .3s;
-    transform: scale(1.0);
+    overflow: hidden;
+
+    @media(max-width: 768px){
+        height: 60px;
+    }
 
 
     & a {
@@ -56,23 +64,55 @@ const Li = styled.li`
         text-decoration: none;
     }
 
+    & div.label {
+        @media(min-width: 769px){
+            position: absolute;
+            width: 100%
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            line-height: 30px;
+            padding: 5px;
+        }
+    }
+
+    & div.hoverEffect {
+
+        @media(min-width: 769px){
+            background: #0089e0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+    
+    
+            transition: .3s;
+            top: 0;
+            right: 100%;
+        }
+    }
+
     &:hover {
-        transform: scale(1.05);
-        box-shadow: -3px 3px 2px 0px rgba(0,0,0,.5);
+        // background: #0089e0;
+        // color: white;
+
+        @media(min-width: 769px){
+            & div.label {
+                color: white;
+            }
+    
+            & div.hoverEffect {
+                right: 0;
+            }
+    
+        }
+
     
     }
 
     &.active {
-        border-left: 4px solid purple;
-        // border-bottom: 4px solid purple;
-
-        // &::before{
-        //     content: '';
-        //     height: 15px;
-        //     width: 15px;
-        //     background: purple;
-        //     border-radius: 50%;
-        // }
+        border-left: 4px solid #0089e0;
+        // border-bottom: 4px solid #0089e0;
     }
 
     
@@ -84,8 +124,8 @@ const items = [
         path: '/'
     },
     {
-        label: 'Work',
-        path: '/work'
+        label: 'Projects',
+        path: '/projects'
     },
     {
         label: 'About',
@@ -132,11 +172,15 @@ export default function Sidebar({ shown }) {
                         onClick={() => handleSelectItem(item)}
                         key={items.indexOf(item)}
                     >
-                        {item.icon
-                            ? <i style={{ marginRight: '5px' }} className={item.icon}></i>
-                            : ''
-                        }
-                        {item.label}
+
+                        <div className="label">
+                            {item.icon
+                                ? <i style={{ marginRight: '5px' }} className={item.icon}></i>
+                                : ''
+                            }
+                            {item.label}
+                        </div>
+                        <div className="hoverEffect"></div>
                     </Li>
                 ))}
             </Ul>

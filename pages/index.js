@@ -18,7 +18,7 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <PostsSection title="Posts" type="posts" posts={allPostsData} />
+      <PostsSection type="posts" posts={allPostsData} />
     </Layout>
   )
 }

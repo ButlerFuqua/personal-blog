@@ -3,14 +3,22 @@ import styled from 'styled-components'
 
 
 const HeaderEl = styled.header`
-    position: sticky;
-    top: 0;
+    
+    
     background: white;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
+    padding: .5rem;
+    box-shadow: 0px 0px 11px -3px rgba(0,0,0, .5);
+
+    @media(min-width: 769px){
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
 
     @media(max-width: 768px){
         flex-direction: column;
@@ -18,14 +26,14 @@ const HeaderEl = styled.header`
 `
 
 const Title = styled.h1`
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 1.2;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin: 0;
 `
 
 const TitleAlt = styled.h1`
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.4;
     margin: 1rem 0;
 
@@ -37,7 +45,7 @@ const TitleAlt = styled.h1`
 const Subtitle = styled.h2`
     margin: 0;
     font-weight: 300;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 
     @media(max-width: 768px){
         display: none;
@@ -129,32 +137,24 @@ const bannerListItems = [
 export default function Header({ name, home }) {
     return (
         <HeaderEl >
-            {home ? (
-                <>
-                    <div>
-                        <Title>{name}</Title>
-                        <Subtitle>A personal website and blog.</Subtitle>
-                    </div>
-                    <BannerList>
-                        <BannerListUL>
-                            {bannerListItems.map(bItem => (
-                                <Li bg={bItem.color} key={bannerListItems.indexOf(bItem)}>
-                                    <a href={bItem.link} target="_blank">
-                                        <Icon style={{ color: bItem.color }} className={bItem.icon}></Icon>
-                                        {bItem.label}
-                                    </a>
-                                </Li>
-                            ))}
-                        </BannerListUL>
-                    </BannerList>
-                </>
-            ) : (
-                    <TitleAlt>
-                        <Link href="/">
-                            <a >{name}</a>
-                        </Link>
-                    </TitleAlt>
-                )}
+            <>
+                <div>
+                    <Title>{name}</Title>
+                    <Subtitle>A personal website and blog.</Subtitle>
+                </div>
+                <BannerList>
+                    <BannerListUL>
+                        {bannerListItems.map(bItem => (
+                            <Li bg={bItem.color} key={bannerListItems.indexOf(bItem)}>
+                                <a href={bItem.link} target="_blank">
+                                    <Icon style={{ color: bItem.color }} className={bItem.icon}></Icon>
+                                    {bItem.label}
+                                </a>
+                            </Li>
+                        ))}
+                    </BannerListUL>
+                </BannerList>
+            </>
         </HeaderEl>
 
     )

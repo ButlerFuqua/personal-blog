@@ -12,8 +12,17 @@ import Router, { useRouter } from 'next/router'
 const name = 'Butler Fuqua'
 export const siteTitle = 'Personal website and blog'
 
-
-
+const Container = styled.main`
+    max-width: 1000px;
+    width: 100%;
+    margin:  auto;
+`
+const PageWrapper = styled.div`
+    flex: 1;
+    @media(min-width: 769px){
+        padding: 1rem;
+    }
+`
 export default function Layout({ children, home, test }) {
 
     const [showSidebar, setshowSidebar] = useState(false)
@@ -26,7 +35,7 @@ export default function Layout({ children, home, test }) {
     const handleSidebar = () => setshowSidebar(!showSidebar)
 
     return (
-        <div className={styles.container}>
+        <>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
@@ -45,24 +54,25 @@ export default function Layout({ children, home, test }) {
             <Header name={name} home={home} />
             <MenuToggle showSidebar={showSidebar} handleSidebar={handleSidebar} >Menu</MenuToggle>
 
-            <main>
+            <Container>
                 <Sidebar shown={showSidebar} handleSidebar={handleSidebar} />
-                <div id="pageWrapper">
+                <PageWrapper>
                     {children}
-                </div>
-            </main>
-            {
-                !home && (
-                    <div className={styles.backToHome}>
-                        <Link href={pathname.indexOf('/projects/') > -1 ? '/work' : '/'}>
-                            <a>
-                                <i style={{ marginRight: '2px' }} className="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                    {
+                        !home && (
+                            <div className={styles.backToHome}>
+                                <Link href={pathname.indexOf('/projects/') > -1 ? '/work' : '/'}>
+                                    <a>
+                                        <i style={{ marginRight: '2px' }} className="fa fa-arrow-circle-left" aria-hidden="true"></i>
                                  Back
                                  </a>
-                        </Link>
-                    </div>
-                )
-            }
-        </div >
+                                </Link>
+                            </div>
+                        )
+                    }
+                </PageWrapper>
+            </Container>
+
+        </ >
     )
 }

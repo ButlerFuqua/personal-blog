@@ -18,7 +18,7 @@ export default function Work({ allProjectsData }) {
             <Head>
                 <title>{siteTitle}</title>
             </Head>
-            <PostsSection title="My Work" type="projects" posts={allProjectsData} />
+            <PostsSection type="projects" posts={allProjectsData} />
         </Layout>
     )
 }
