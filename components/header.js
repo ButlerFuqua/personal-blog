@@ -32,15 +32,15 @@ const Title = styled.h1`
     margin: 0;
 `
 
-const TitleAlt = styled.h1`
-    font-size: 1.2rem;
-    line-height: 1.4;
-    margin: 1rem 0;
+// const TitleAlt = styled.h1`
+//     font-size: 1.2rem;
+//     line-height: 1.4;
+//     margin: 1rem 0;
 
-    & a {
-        color: inherit;
-    }
-`
+//     & a {
+//         color: inherit;
+//     }
+// `
 
 const Subtitle = styled.h2`
     margin: 0;

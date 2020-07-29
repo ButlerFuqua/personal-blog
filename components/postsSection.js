@@ -18,7 +18,6 @@ const Li = styled.li`
     position: relative;
 
     transition: .2s;
-    // transform: scale(1.0);
     box-shadow: 0 0 0 0 rgb(8 7 7 / 30%);
 
 
@@ -26,7 +25,6 @@ const Li = styled.li`
 
     &:hover{
        @media(min-width: 769px){
-        // transform: scale(1.01);
         box-shadow: 0 0 20px 0 rgb(8 7 7 / 30%);
        }
        
