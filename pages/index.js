@@ -20,6 +20,11 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <PostsSection type="posts" posts={allPostsData} />
+
+
+
+
+
     </Layout>
   )
 }
