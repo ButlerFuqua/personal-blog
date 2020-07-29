@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import { getAllProjectIds, getProjectData } from '../../lib/projects'
 import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.css'
+import styled from 'styled-components'
 
 
 export async function getStaticPaths() {
@@ -23,6 +23,17 @@ export async function getStaticProps({ params }) {
     }
 }
 
+
+
+const Title = styled.h1`
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
+`
+const lightText = { color: `#999` }
+
 export default function Project({ projectData }) {
     return (
         <Layout>
@@ -30,8 +41,8 @@ export default function Project({ projectData }) {
                 <title>{projectData.title}</title>
             </Head>
             <article>
-                <h1 className={utilStyles.headingXl}>{projectData.title}</h1>
-                <div className={utilStyles.lightText}>
+                <Title>{projectData.title}</Title>
+                <div style={lightText}>
                     <Date dateString={projectData.date} />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: projectData.contentHtml }} />

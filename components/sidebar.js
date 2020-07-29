@@ -17,8 +17,6 @@ const Container = styled.div`
         align-items: center;
         justify-content: center;
 
-
-
         transition: .3s;
         top: 0;
         left: 100%;

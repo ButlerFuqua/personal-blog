@@ -1,5 +1,3 @@
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -24,6 +22,16 @@ const Title = styled.h1`
     line-height: 1.2;
     font-weight: 800;
     margin-bottom: 1rem;
+`
+
+const TitleAlt = styled.h1`
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+
+    & a {
+        color: inherit;
+    }
 `
 
 const Subtitle = styled.h2`
@@ -141,13 +149,11 @@ export default function Header({ name, home }) {
                     </BannerList>
                 </>
             ) : (
-                    <>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/">
-                                <a className={utilStyles.colorInherit}>{name}</a>
-                            </Link>
-                        </h2>
-                    </>
+                    <TitleAlt>
+                        <Link href="/">
+                            <a >{name}</a>
+                        </Link>
+                    </TitleAlt>
                 )}
         </HeaderEl>
 
