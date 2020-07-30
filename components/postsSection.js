@@ -10,12 +10,13 @@ const PostsList = styled.ul`
     padding: 0;
     margin: 0;
 
+
 `
 
 const Li = styled.li`
     background: white;
     list-style: none;
-    margin: 1rem 0;
+    margin: 0;
     padding: 1rem;
     min-height: 280px;
     position: relative;
@@ -24,7 +25,9 @@ const Li = styled.li`
     box-shadow: 0 0 0 0 rgb(8 7 7 / 30%);
 
 
-
+    & + li {
+        margin-top: 1rem;
+    }
 
     &:hover{
        @media(min-width: 769px){
@@ -53,6 +56,7 @@ const Tags = styled.ul`
 
 const Filterlist = styled.ul`
      margin: 0;
+     margin-bottom: 1rem;
      padding: 1rem;
      background: white;
      display: flex;
@@ -88,6 +92,11 @@ export default function PostsSection({ posts, title, type }) {
     const [selectedCategory, setSelectedCategory] = useState('all')
     const [filteredPosts, setFilteredPosts] = useState(posts)
 
+    // get only the categories that are being used
+    const availableCategories = posts.map(post => post.tags).flat().filter(tag => tag).map(tag => tag.toLowerCase())
+    const usedCategories = categories.filter(category => availableCategories.indexOf(category.toLowerCase()) !== -1)
+
+
     const handleSelectCategory = category => {
 
         setSelectedCategory(category)
@@ -108,16 +117,19 @@ export default function PostsSection({ posts, title, type }) {
             {title
                 ? <h2 >{title}</h2>
                 : ''}
-            <Filterlist>
-                {categories.map(category => (
-                    <li
-                        className={category.toLowerCase() === selectedCategory.toLowerCase() ? 'active' : ''}
-                        key={categories.indexOf(category)}
-                        onClick={() => handleSelectCategory(category)}>
-                        {category}
-                    </li>))}
-            </Filterlist>
-            <PostsList >
+            {usedCategories.length
+                ?
+                <Filterlist>
+                    {usedCategories.map(category => (
+                        <li
+                            className={category.toLowerCase() === selectedCategory.toLowerCase() ? 'active' : ''}
+                            key={usedCategories.indexOf(category)}
+                            onClick={() => handleSelectCategory(category)}>
+                            {category}
+                        </li>))}
+                </Filterlist>
+                : ''}
+            <PostsList usedCategories={usedCategories} >
                 {filteredPosts.map(({ id, date, title, tags }) => (
                     <Li key={id}>
                         <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
@@ -134,9 +146,6 @@ export default function PostsSection({ posts, title, type }) {
                             </Tags>)
                             : ''
                         }
-                        {/* <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
-                            <a>View</a>
-                        </Link> */}
                     </Li>
                 ))}
             </PostsList>
