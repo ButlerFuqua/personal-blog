@@ -2,6 +2,9 @@ import Link from 'next/link'
 import Date from '../components/date'
 import styled from 'styled-components'
 import Router from 'next/router'
+import { categories } from '../lib/postsInfo'
+import { useState } from 'react'
+
 
 const PostsList = styled.ul`
     padding: 0;
@@ -71,32 +74,51 @@ const Filterlist = styled.ul`
          &:hover{
             box-shadow: 0 0 10px 3px rgb(8 7 7 / 30%);
          }
+
+         &.active{
+             background: #0089e0;
+             color: white;
+         }
      }
 `
 
 
 export default function PostsSection({ posts, title, type }) {
+
+    const [selectedCategory, setSelectedCategory] = useState('all')
+    const [filteredPosts, setFilteredPosts] = useState(posts)
+
+    const handleSelectCategory = category => {
+
+        setSelectedCategory(category)
+
+        // Return all posts if category is all
+        if (category.toLowerCase() === 'all') return setFilteredPosts(posts)
+
+        // filter out posts with selected category
+        let f_posts = posts.filter(post => post.tags && post.tags.map(tag => tag.toLowerCase()).indexOf(category.toLowerCase()) !== -1)
+
+        setFilteredPosts(f_posts)
+
+    }
+
+
     return (
         <>
             {title
                 ? <h2 >{title}</h2>
                 : ''}
             <Filterlist>
-                <li>JavaScript</li>
-                <li>Career</li>
-                <li>Life</li>
-                <li>JavaScript</li>
-                <li>Career</li>
-                <li>Life</li>
-                <li>JavaScript</li>
-                <li>Career</li>
-                <li>Life</li>
-                <li>JavaScript</li>
-                <li>Career</li>
-                <li>Life</li>
+                {categories.map(category => (
+                    <li
+                        className={category.toLowerCase() === selectedCategory.toLowerCase() ? 'active' : ''}
+                        key={categories.indexOf(category)}
+                        onClick={() => handleSelectCategory(category)}>
+                        {category}
+                    </li>))}
             </Filterlist>
             <PostsList >
-                {posts.map(({ id, date, title }) => (
+                {filteredPosts.map(({ id, date, title, tags }) => (
                     <Li key={id}>
                         <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
                             <a>{title}</a>
@@ -106,11 +128,12 @@ export default function PostsSection({ posts, title, type }) {
                             <Date dateString={date} />
                         </small>
                         <p>This is an excerpt for this post or project, whatever it may be. Gotta make sure to keep this short, but still descriptive enought to inform readers what the post or project is about.</p>
-                        <Tags>
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>Web dev</li>
-                        </Tags>
+                        {tags
+                            ? (<Tags>
+                                {tags.map(tag => <li key={tags.indexOf(tag)}>{tag}</li>)}
+                            </Tags>)
+                            : ''
+                        }
                         {/* <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
                             <a>View</a>
                         </Link> */}
