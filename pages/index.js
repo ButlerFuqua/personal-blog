@@ -1,17 +1,22 @@
-import styled from 'styled-components'
-import Link from 'next/link'
+import Layout, { siteTitle } from '../components/layout'
+import PostsSection from '../components/postsSection'
+import { getSortedPostsData } from '../lib/posts'
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
+}
 
-export default function Home() {
+
+export default function Home({ allPostsData }) {
   return (
-    <>
-      <Title>My page</Title>
-      <i className="fab fa-github"></i>
-      <Link href="/about" as="/about"><a>About</a></Link>
-    </>
+    <Layout home>
+      <PostsSection type="posts" posts={allPostsData} />
+    </Layout>
   )
 }
+
