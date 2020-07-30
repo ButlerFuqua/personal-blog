@@ -1,5 +1,7 @@
 import App from 'next/app'
 import { ThemeProvider } from 'styled-components'
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 const theme = {
   colors: {

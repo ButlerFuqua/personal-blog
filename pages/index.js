@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <>
       <Title>My page</Title>
+      <i className="fab fa-github"></i>
       <Link href="/about" as="/about"><a>About</a></Link>
     </>
   )
