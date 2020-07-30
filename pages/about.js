@@ -6,11 +6,11 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
 `
 
-export default function Home() {
-  return (
-    <>
-      <Title>My page</Title>
-      <Link href="/about" as="/about"><a>About</a></Link>
-    </>
-  )
+export default function About() {
+    return (
+        <>
+            <Title>About</Title>
+            <Link href="/" as="/"><a>Home</a></Link>
+        </>
+    )
 }
