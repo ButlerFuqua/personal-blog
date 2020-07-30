@@ -1297,9 +1297,9 @@ babel-plugin-dynamic-import-node@^2.3.0, babel-plugin-dynamic-import-node@^2.3.3
     object.assign "^4.1.0"
 
 "babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.10.7:
-  version "1.10.7"
-  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.7.tgz#3494e77914e9989b33cc2d7b3b29527a949d635c"
-  integrity sha512-MBMHGcIA22996n9hZRf/UJLVVgkEOITuR2SvjHLb5dSTUyR4ZRGn+ngITapes36FI3WLxZHfRhkA1ffHxihOrg==
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.11.0.tgz#bfccbd3f1dede9ee14e2329ed5293c126a49dcc8"
+  integrity sha512-X+3II2OfDD7AKEKzJfqJBhR48FfVHsImTETtYvZtJrGiBQmRP8UQKOCQL+hOhvHP0l4Fuwqk2bMCXAd3YADpwA==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-module-imports" "^7.0.0"
@@ -2286,9 +2286,9 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     stream-shift "^1.0.0"
 
 electron-to-chromium@^1.3.322, electron-to-chromium@^1.3.488:
-  version "1.3.512"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.512.tgz#620e6731c693ddaaf3750f23dde7f7c4347b7327"
-  integrity sha512-y02hdFg7c4jTfREcXf4fRhHLt7BzofMgd7JAKY+u9i62E0D1eIpLQPFo5/eboZL0bIVY9YHZA53+vCGNFREOXA==
+  version "1.3.513"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.513.tgz#d556da1e7d3142d209e2950bab4bf1c9b5fd75c9"
+  integrity sha512-4Mr0dfgKqe0VD6kq6FkdPmLIcJuEVsA6c6zfcs3rBb+eHEALYNI+KDhZYbzwyd+bbDuwha2Q44RHrB0I+bnXBw==
 
 elliptic@^6.0.0, elliptic@^6.5.2:
   version "6.5.3"
