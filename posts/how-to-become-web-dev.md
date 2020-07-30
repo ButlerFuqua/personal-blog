@@ -1,7 +1,8 @@
 ---
-title: 'Project 1'
+title: 'Step by step online courses to learn full stack web development'
 date: '2020-01-01'
-tags: [Life]
+tags: ['web dev', 'career']
+excerpt: 'Mostly free courses, in order, that you can take right now to become a full stack web developer even if you have no experience at all.'
 ---
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.

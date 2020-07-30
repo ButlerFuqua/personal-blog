@@ -120,17 +120,23 @@ export default function PostsSection({ posts, title, type }) {
             {usedCategories.length
                 ?
                 <Filterlist>
+                    <li
+                        className={'all' === selectedCategory.toLowerCase() ? 'active' : ''}
+                        onClick={() => handleSelectCategory('all')}>
+                        All
+                    </li>
                     {usedCategories.map(category => (
                         <li
                             className={category.toLowerCase() === selectedCategory.toLowerCase() ? 'active' : ''}
                             key={usedCategories.indexOf(category)}
                             onClick={() => handleSelectCategory(category)}>
                             {category}
-                        </li>))}
+                        </li>
+                    ))}
                 </Filterlist>
                 : ''}
             <PostsList usedCategories={usedCategories} >
-                {filteredPosts.map(({ id, date, title, tags }) => (
+                {filteredPosts.map(({ id, date, title, tags, excerpt }) => (
                     <Li key={id}>
                         <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
                             <a>{title}</a>
@@ -139,7 +145,11 @@ export default function PostsSection({ posts, title, type }) {
                         <small >
                             <Date dateString={date} />
                         </small>
-                        <p>This is an excerpt for this post or project, whatever it may be. Gotta make sure to keep this short, but still descriptive enought to inform readers what the post or project is about.</p>
+                        {excerpt
+                            ? (<p>{excerpt}</p>)
+                            : ''
+                        }
+
                         {tags
                             ? (<Tags>
                                 {tags.map(tag => <li key={tags.indexOf(tag)}>{tag}</li>)}
