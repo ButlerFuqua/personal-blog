@@ -48,6 +48,32 @@ const Tags = styled.ul`
      }
 `
 
+const Filterlist = styled.ul`
+     margin: 0;
+     padding: 1rem;
+     background: white;
+     display: flex;
+     justify-content: flex-start;
+     flex-wrap: no-wrap;
+     overflow-x: auto;
+     width: 100%;
+
+
+     & li {
+         list-style: none;
+         margin: .5rem;
+         padding: .2rem .5rem;
+         background: white;
+         border: 1px solid #0089e0;
+         color: #0089e0;
+         cursor: pointer;
+
+         &:hover{
+            box-shadow: 0 0 10px 3px rgb(8 7 7 / 30%);
+         }
+     }
+`
+
 
 export default function PostsSection({ posts, title, type }) {
     return (
@@ -55,6 +81,20 @@ export default function PostsSection({ posts, title, type }) {
             {title
                 ? <h2 >{title}</h2>
                 : ''}
+            <Filterlist>
+                <li>JavaScript</li>
+                <li>Career</li>
+                <li>Life</li>
+                <li>JavaScript</li>
+                <li>Career</li>
+                <li>Life</li>
+                <li>JavaScript</li>
+                <li>Career</li>
+                <li>Life</li>
+                <li>JavaScript</li>
+                <li>Career</li>
+                <li>Life</li>
+            </Filterlist>
             <PostsList >
                 {posts.map(({ id, date, title }) => (
                     <Li key={id}>

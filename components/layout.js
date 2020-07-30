@@ -19,8 +19,10 @@ const Container = styled.main`
 `
 const PageWrapper = styled.div`
     flex: 1;
+    overflow: hidden;
     @media(min-width: 769px){
         padding: 1rem;
+        padding-top: 0;
     }
 `
 export default function Layout({ children, home, test }) {
