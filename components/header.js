@@ -25,12 +25,12 @@ const HeaderEl = styled.header`
     }
 `
 
-// const Title = styled.h1`
-//     font-size: 2rem;
-//     line-height: 1.2;
-//     font-weight: 800;
-//     margin: 0;
-// `
+const Title = styled.h1`
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 800;
+    margin: 0;
+`
 
 // const TitleAlt = styled.h1`
 //     font-size: 1.2rem;
@@ -137,24 +137,22 @@ const bannerListItems = [
 export default function Header({ name, home }) {
     return (
         <HeaderEl >
-            <>
-                <div>
-                    <h1>{name}</h1>
-                    <Subtitle>A personal website and blog.</Subtitle>
-                </div>
-                <BannerList>
-                    <BannerListUL>
-                        {bannerListItems.map(bItem => (
-                            <Li bg={bItem.color} key={bannerListItems.indexOf(bItem)}>
-                                <a href={bItem.link} target="_blank">
-                                    <Icon style={{ color: bItem.color }} className={bItem.icon}></Icon>
-                                    {bItem.label}
-                                </a>
-                            </Li>
-                        ))}
-                    </BannerListUL>
-                </BannerList>
-            </>
+            <div>
+                <Title>{name}</Title>
+                <Subtitle>A personal website and blog.</Subtitle>
+            </div>
+            <BannerList>
+                <BannerListUL>
+                    {bannerListItems.map(bItem => (
+                        <Li bg={bItem.color} key={bannerListItems.indexOf(bItem)}>
+                            <a href={bItem.link} target="_blank">
+                                <Icon style={{ color: bItem.color }} className={bItem.icon}></Icon>
+                                {bItem.label}
+                            </a>
+                        </Li>
+                    ))}
+                </BannerListUL>
+            </BannerList>
         </HeaderEl>
 
     )
