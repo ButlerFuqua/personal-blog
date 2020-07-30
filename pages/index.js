@@ -1,22 +1,10 @@
-import Layout, { siteTitle } from '../components/layout'
-import PostsSection from '../components/postsSection'
-import { getSortedPostsData } from '../lib/posts'
+import styled from 'styled-components'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
+const Title = styled.h1`
+  font-size: 50px;
+  color: ${({ theme }) => theme.colors.primary};
+`
+
+export default function Home() {
+  return <Title>My page</Title>
 }
-
-
-export default function Home({ allPostsData }) {
-  return (
-    <Layout home>
-      <PostsSection type="posts" posts={allPostsData} />
-    </Layout>
-  )
-}
-
