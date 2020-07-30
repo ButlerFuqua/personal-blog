@@ -26,9 +26,9 @@ const HeaderEl = styled.header`
 `
 
 const Title = styled.h1`
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.2;
-    font-weight: 800;
+    font-weight: 400;
     margin: 0;
 `
 
@@ -45,7 +45,7 @@ const Title = styled.h1`
 const Subtitle = styled.h2`
     margin: 0;
     font-weight: 300;
-    font-size: 1.1rem;
+    font-size: 1rem;
 
     @media(max-width: 768px){
         display: none;
@@ -61,6 +61,7 @@ const BannerListUL = styled.ul`
     text-align: right;
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
     
 
     @media(max-width: 768px){
