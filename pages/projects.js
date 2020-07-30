@@ -15,9 +15,6 @@ export async function getStaticProps() {
 export default function Work({ allProjectsData }) {
     return (
         <Layout home>
-            <Head>
-                <title>{siteTitle}</title>
-            </Head>
             <PostsSection type="projects" posts={allProjectsData} />
         </Layout>
     )

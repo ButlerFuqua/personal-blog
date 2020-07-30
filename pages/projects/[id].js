@@ -1,5 +1,4 @@
 import Layout from '../../components/layout'
-import Head from 'next/head'
 
 import { getAllProjectIds, getProjectData } from '../../lib/projects'
 import Date from '../../components/date'
@@ -37,9 +36,6 @@ const lightText = { color: `#999` }
 export default function Project({ projectData }) {
     return (
         <Layout>
-            <Head>
-                <title>{projectData.title}</title>
-            </Head>
             <article>
                 <Title>{projectData.title}</Title>
                 <div style={lightText}>
