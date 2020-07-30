@@ -25,12 +25,12 @@ const HeaderEl = styled.header`
     }
 `
 
-const Title = styled.h1`
-    font-size: 2rem;
-    line-height: 1.2;
-    font-weight: 800;
-    margin: 0;
-`
+// const Title = styled.h1`
+//     font-size: 2rem;
+//     line-height: 1.2;
+//     font-weight: 800;
+//     margin: 0;
+// `
 
 // const TitleAlt = styled.h1`
 //     font-size: 1.2rem;
@@ -139,7 +139,7 @@ export default function Header({ name, home }) {
         <HeaderEl >
             <>
                 <div>
-                    <Title>{name}</Title>
+                    <h1>{name}</h1>
                     <Subtitle>A personal website and blog.</Subtitle>
                 </div>
                 <BannerList>
