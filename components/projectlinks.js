@@ -1,9 +1,23 @@
+import styled from 'styled-components'
+import Link from 'next/link'
 
+const Ul = styled.ul`
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-directin: flex-start;
 
-export default function ProjectLinks() {
+    & li {
+        list-style: none;
+        margin: .5rem;
+        padding: 1rem;
+    }
+`
+
+export default function ProjectLinks({ links }) {
     return (
-        <ul>
-            <li>project link</li>
-        </ul>
+        <Ul>
+            {links.map(link => <li>{link.label}</li>)}
+        </Ul>
     )
 }

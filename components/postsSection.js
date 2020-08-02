@@ -137,7 +137,7 @@ export default function PostsSection({ posts, title, type }) {
                 </Filterlist>
                 : ''}
             <PostsList usedCategories={usedCategories} >
-                {filteredPosts.map(({ id, date, title, tags, excerpt }) => (
+                {filteredPosts.map(({ id, date, title, tags, excerpt, links }) => (
                     <Li key={id}>
                         <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
                             <a>{title}</a>
@@ -152,7 +152,7 @@ export default function PostsSection({ posts, title, type }) {
                         }
 
                         {/*  If these are projects, add code into */}
-                        {type == 'projects' ? <ProjectLinks /> : ''}
+                        {type == 'projects' ? <ProjectLinks links={links} /> : ''}
 
                         {tags
                             ? (<Tags>
