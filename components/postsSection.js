@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Router from 'next/router'
 import { categories } from '../lib/postsInfo'
 import { useState } from 'react'
+import ProjectLinks from './projectLinks'
 
 
 const PostsList = styled.ul`
@@ -149,6 +150,9 @@ export default function PostsSection({ posts, title, type }) {
                             ? (<p>{excerpt}</p>)
                             : ''
                         }
+
+                        {/*  If these are projects, add code into */}
+                        {type == 'projects' ? <ProjectLinks /> : ''}
 
                         {tags
                             ? (<Tags>

@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 const theme = {
   colors: {
-    primary: '#0070f3',
+    primary: '#0089e0',
   },
 }
 
