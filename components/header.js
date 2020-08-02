@@ -3,15 +3,13 @@ import styled from 'styled-components'
 
 
 const HeaderEl = styled.header`
-    
-    
     background: white;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
-    padding: .5rem;
+    padding: .5rem 1rem;
     box-shadow: 0px 0px 11px -3px rgba(0,0,0, .5);
 
     @media(min-width: 769px){
@@ -32,15 +30,6 @@ const Title = styled.h1`
     margin: 0;
 `
 
-// const TitleAlt = styled.h1`
-//     font-size: 1.2rem;
-//     line-height: 1.4;
-//     margin: 1rem 0;
-
-//     & a {
-//         color: inherit;
-//     }
-// `
 
 const Subtitle = styled.h2`
     margin: 0;

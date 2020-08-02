@@ -74,13 +74,14 @@ const Li = styled.li`
             z-index: 1;
             line-height: 30px;
             padding: 5px;
+            padding-left: 1rem;
         }
     }
 
     & div.hoverEffect {
 
         @media(min-width: 769px){
-            background: #0089e0;
+            background: ${({ theme }) => theme.colors.primary};
             position: absolute;
             width: 100%;
             height: 100%;
@@ -93,7 +94,7 @@ const Li = styled.li`
     }
 
     &:hover {
-        // background: #0089e0;
+        // background: ${({ theme }) => theme.colors.primary};
         // color: white;
 
         @media(min-width: 769px){
@@ -111,8 +112,8 @@ const Li = styled.li`
     }
 
     &.active {
-        border-left: 4px solid #0089e0;
-        // border-bottom: 4px solid #0089e0;
+        border-left: 4px solid ${({ theme }) => theme.colors.primary};
+        // border-bottom: 4px solid ${({ theme }) => theme.colors.primary};
     }
 
     
@@ -131,10 +132,10 @@ const items = [
         label: 'About',
         path: '/about'
     },
-    {
-        label: 'Contact',
-        path: '/contact'
-    },
+    // {
+    //     label: 'Contact',
+    //     path: '/contact'
+    // },
     {
         label: 'Resume',
         icon: 'fa fa-arrow-circle-down',

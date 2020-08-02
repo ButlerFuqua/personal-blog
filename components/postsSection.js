@@ -47,7 +47,7 @@ const Tags = styled.ul`
          font-size: .8rem;
          margin: .5rem;
          padding: .2rem .5rem;
-         background: #0089e0;
+         background: ${({ theme }) => theme.colors.primary};
          color: white;
 
          
@@ -71,8 +71,8 @@ const Filterlist = styled.ul`
          margin: .5rem;
          padding: .2rem .5rem;
          background: white;
-         border: 1px solid #0089e0;
-         color: #0089e0;
+         border: 1px solid ${({ theme }) => theme.colors.primary};
+         color: ${({ theme }) => theme.colors.primary};
          cursor: pointer;
 
          &:hover{
@@ -80,7 +80,7 @@ const Filterlist = styled.ul`
          }
 
          &.active{
-             background: #0089e0;
+             background: ${({ theme }) => theme.colors.primary};
              color: white;
          }
      }
