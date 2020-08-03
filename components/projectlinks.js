@@ -13,11 +13,20 @@ const Ul = styled.ul`
         padding: 1rem;
     }
 `
+const A = styled.a`
+    color: ${({ theme, color }) => theme.colors[color]};
+`
 
 export default function ProjectLinks({ links }) {
     return (
         <Ul>
-            {links.map(link => <li>{link.label}</li>)}
+            {links.map(link => (
+                <li>
+                    <A color={link.label.toLowerCase()} href={link.path} target="_blank" noreferrer="true" noopener="true">
+                        <i className={link.icon}></i>
+                    </A>
+                </li>
+            ))}
         </Ul>
     )
 }

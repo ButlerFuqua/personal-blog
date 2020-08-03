@@ -6,7 +6,13 @@ excerpt: 'A progressevie web app I am making where useres can search their chara
 links: [
     {
         label: 'github',
-        icon: 'fab fa-github'
+        icon: 'fab fa-github',
+        path: 'https://github.com/ButlerFuqua/marvel_characters'
+    },
+    {
+        label: 'external',
+        icon: 'fa fa-eye',
+        path: 'https://marvelcharacters.site'
     }
 ]
 ---

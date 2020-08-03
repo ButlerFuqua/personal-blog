@@ -6,6 +6,11 @@ import '@fortawesome/fontawesome-free/css/all.css';
 const theme = {
   colors: {
     primary: '#0089e0',
+    github: '#24292E',
+    lnkedin: '#0077B5',
+    codepen: '#47cf73',
+    repl: '#192333',
+    external: '#A055BF'
   },
 }
 
