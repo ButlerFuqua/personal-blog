@@ -124,7 +124,7 @@ export default function PostsSection({ posts, title, type }) {
         setSelectedCategories(categories)
 
         // filter out posts without selected categories
-        let f_posts = posts.filter(post => post.tags && post.tags.filter(tag => categories.indexOf(tag) !== -1).length > 0)
+        let f_posts = posts.filter(post => post.tags && post.tags.filter(tag => categories.map(cat => cat.toLowerCase()).indexOf(tag.toLowerCase()) !== -1).length > 0)
 
 
         // Set posts
@@ -136,7 +136,7 @@ export default function PostsSection({ posts, title, type }) {
 
     return (
         <>
-            <br />
+            {selectedCategories.map(cat => <span>{cat} </span>)}
             {title
                 ? <h2 >{title}</h2>
                 : ''}
@@ -174,7 +174,7 @@ export default function PostsSection({ posts, title, type }) {
                         }
 
                         {/*  If these are projects, add code into */}
-                        {type == 'projects' ? <ProjectLinks links={links} /> : ''}
+                        {/* {type == 'projects' ? <ProjectLinks links={links} /> : ''} */}
 
                         {tags
                             ? (<Tags>
