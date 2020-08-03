@@ -136,7 +136,6 @@ export default function PostsSection({ posts, title, type }) {
 
     return (
         <>
-            {selectedCategories.map(cat => <span>{cat} </span>)}
             {title
                 ? <h2 >{title}</h2>
                 : ''}
