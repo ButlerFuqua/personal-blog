@@ -11,7 +11,7 @@ links: [
     },
     {
         label: 'external',
-        icon: 'fa fa-eye',
+        icon: 'fa fa-link',
         path: 'https://marvelcharacters.site'
     }
 ]

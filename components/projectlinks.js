@@ -14,7 +14,21 @@ const Ul = styled.ul`
     }
 `
 const A = styled.a`
-    color: ${({ theme, color }) => theme.colors[color]};
+    background: ${({ theme, color }) => theme.colors[color]};
+    border: 1px solid ${({ theme, color }) => theme.colors[color]};
+    color: white;
+    transition: .2s;
+    padding: .5rem .75rem;
+    border-radius: 50%;
+    position: relative;
+    bottom: 0;
+    
+    &: hover {
+        color: ${({ theme, color }) => theme.colors[color]};
+        background: white;
+        bottom: 3px;
+        box-shadow: ${({ theme }) => theme.shadow.sm}
+    }
 `
 
 export default function ProjectLinks({ links }) {

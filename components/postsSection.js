@@ -75,10 +75,14 @@ const Filterlist = styled.ul`
          border: 1px solid ${({ theme }) => theme.colors.primary};
          color: ${({ theme }) => theme.colors.primary};
          cursor: pointer;
+         position: relative;
+         bottom: 0;
+         transition: .2s;
 
          &:hover{
-            box-shadow: 0 0 10px 3px rgb(8 7 7 / 30%);
-         }
+            box-shadow: ${({ theme }) => theme.shadow.sm};
+            bottom: 3px;
+        }
 
          &.active{
              background: ${({ theme }) => theme.colors.primary};

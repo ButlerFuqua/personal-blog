@@ -12,6 +12,9 @@ const theme = {
     repl: '#192333',
     external: '#A055BF'
   },
+  shadow: {
+    sm: '0px 3px 7px 2px rgba(0,0,0, .3)'
+  }
 }
 
 
