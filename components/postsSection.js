@@ -62,6 +62,7 @@ const Filterlist = styled.ul`
          position: relative;
          bottom: 0;
          transition: .2s;
+         white-space: nowrap;
 
          &:hover{
             box-shadow: ${({ theme }) => theme.shadow.sm};
