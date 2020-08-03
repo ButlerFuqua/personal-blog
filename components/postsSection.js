@@ -38,22 +38,6 @@ const Li = styled.li`
     }
 `
 
-const Tags = styled.ul`
-    margin: 0;
-    padding: 0;
-    display: flex;
-
-     & li {
-         list-style: none;
-         font-size: .8rem;
-         margin: .5rem;
-         padding: .2rem .5rem;
-         background: ${({ theme }) => theme.colors.primary};
-         color: white;
-
-         
-     }
-`
 
 const Filterlist = styled.ul`
      margin: 0;
@@ -91,10 +75,26 @@ const Filterlist = styled.ul`
      }
 `
 
+const Tags = styled.ul`
+    margin: 0;
+    padding: 0;
+    display: flex;
+`
+
+
+const TagLi = styled.li`
+    list-style: none;
+    font-size: .8rem;
+    margin: .5rem;
+    padding: .2rem .5rem;
+    background: ${({ theme, selected }) => selected ? theme.colors.primary : 'white'};
+    color:  ${({ theme, selected }) => selected ? 'white' : theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary}
+`
 
 export default function PostsSection({ posts, title, type }) {
 
-    const [selectedCategory, setSelectedCategory] = useState('all')
+    const [selectedCategories, setSelectedCategories] = useState(['all'])
     const [filteredPosts, setFilteredPosts] = useState(posts)
 
     // get only the categories that are being used
@@ -104,21 +104,39 @@ export default function PostsSection({ posts, title, type }) {
 
     const handleSelectCategory = category => {
 
-        setSelectedCategory(category)
+        // Set categories array based off selection
+        let categories = [...selectedCategories]
+        if (categories.map(cat => cat.toLowerCase()).indexOf(category.toLowerCase()) !== -1) {
+            categories = categories.filter(cat => cat !== category)
+        } else {
+            categories.push(category)
+        }
 
         // Return all posts if category is all
-        if (category.toLowerCase() === 'all') return setFilteredPosts(posts)
+        if (category.toLowerCase() === 'all') {
+            setSelectedCategories(['all'])
+            return setFilteredPosts(posts)
+        } else {
+            categories = categories.filter(cat => cat !== 'all')
+        }
 
-        // filter out posts with selected category
-        let f_posts = posts.filter(post => post.tags && post.tags.map(tag => tag.toLowerCase()).indexOf(category.toLowerCase()) !== -1)
+        // Set categories
+        setSelectedCategories(categories)
 
-        setFilteredPosts(f_posts)
+        // filter out posts without selected categories
+        let f_posts = posts.filter(post => post.tags && post.tags.filter(tag => categories.indexOf(tag) !== -1).length > 0)
+
+
+        // Set posts
+        if (f_posts.length) setFilteredPosts(f_posts)
+        else setFilteredPosts(posts) // show all posts if there are no categories selected
 
     }
 
 
     return (
         <>
+            <br />
             {title
                 ? <h2 >{title}</h2>
                 : ''}
@@ -126,14 +144,14 @@ export default function PostsSection({ posts, title, type }) {
                 ?
                 <Filterlist>
                     <li
-                        className={'all' === selectedCategory.toLowerCase() ? 'active' : ''}
+                        className={selectedCategories.map(cat => cat.toLowerCase()).indexOf('all') !== -1 ? 'active' : ''}
                         onClick={() => handleSelectCategory('all')}>
                         All
                     </li>
-                    {usedCategories.map(category => (
+                    {usedCategories.map((category, idx) => (
                         <li
-                            className={category.toLowerCase() === selectedCategory.toLowerCase() ? 'active' : ''}
-                            key={usedCategories.indexOf(category)}
+                            className={selectedCategories.map(cat => cat.toLowerCase()).indexOf(category.toLowerCase()) !== -1 ? 'active' : ''}
+                            key={idx + Math.random()}
                             onClick={() => handleSelectCategory(category)}>
                             {category}
                         </li>
@@ -141,8 +159,8 @@ export default function PostsSection({ posts, title, type }) {
                 </Filterlist>
                 : ''}
             <PostsList usedCategories={usedCategories} >
-                {filteredPosts.map(({ id, date, title, tags, excerpt, links }) => (
-                    <Li key={id}>
+                {filteredPosts.map(({ id, date, title, tags, excerpt, links }, idx) => (
+                    <Li key={idx + Math.random()}>
                         <Link href={`/${type}/[id]`} as={`/${type}/${id}`}>
                             <a>{title}</a>
                         </Link>
@@ -160,7 +178,7 @@ export default function PostsSection({ posts, title, type }) {
 
                         {tags
                             ? (<Tags>
-                                {tags.map(tag => <li key={tags.indexOf(tag)}>{tag}</li>)}
+                                {tags.map((tag, idx) => <TagLi selected={selectedCategories.map(cat => cat.toLowerCase()).indexOf(tag.toLowerCase()) !== -1} key={idx + Math.random()}>{tag}</TagLi>)}
                             </Tags>)
                             : ''
                         }
