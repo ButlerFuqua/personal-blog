@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
 import Link from 'next/link'
 import Header from './header'
 import Sidebar from '../components/sidebar'
@@ -25,6 +24,14 @@ const PageWrapper = styled.div`
         padding-top: 0;
     }
 `
+const BackToHome = styled.div`
+    margin: 3rem 0;
+
+    @media(max-width: 768px){
+        text-align: center;
+    }
+`
+
 export default function Layout({ children, home, test }) {
 
     const [showSidebar, setshowSidebar] = useState(false)
@@ -62,14 +69,14 @@ export default function Layout({ children, home, test }) {
                     {children}
                     {
                         !home && (
-                            <div className={styles.backToHome}>
+                            <BackToHome>
                                 <Link href={pathname.indexOf('/projects/') > -1 ? '/work' : '/'}>
                                     <a>
                                         <i style={{ marginRight: '2px' }} className="fa fa-arrow-circle-left" aria-hidden="true"></i>
                                  Back
                                  </a>
                                 </Link>
-                            </div>
+                            </BackToHome>
                         )
                     }
                 </PageWrapper>
