@@ -1,18 +1,18 @@
 ---
 title: 'Boiler Stacks'
 date: '2020-08-02'
-tags: ['React', 'JavaScript', 'Web Dev']
+tags: ['JavaScript', 'Web Dev']
 excerpt: 'A progressevie web app I am making where useres can search their characters from their favorite Marvel comics.'
 links: [
     {
         label: 'github',
         icon: 'fab fa-github',
-        path: 'https://github.com/ButlerFuqua/marvel_characters'
+        path: 'https://github.com/rickyeckhardt/boiler-stacks'
     },
     {
         label: 'external',
         icon: 'fa fa-link',
-        path: 'https://marvelcharacters.site'
+        path: 'https://www.boilerstack.dev/'
     }
 ]
 ---

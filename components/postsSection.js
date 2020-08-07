@@ -174,7 +174,7 @@ export default function PostsSection({ posts, title, type }) {
                         }
 
                         {/*  If these are projects, add code into */}
-                        {/* {type == 'projects' ? <ProjectLinks links={links} /> : ''} */}
+                        {type == 'projects' ? <ProjectLinks links={links} /> : ''}
 
                         {tags
                             ? (<Tags>

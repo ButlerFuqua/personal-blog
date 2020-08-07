@@ -8,11 +8,6 @@ links: [
         label: 'github',
         icon: 'fab fa-github',
         path: 'https://github.com/ButlerFuqua/marvel_characters'
-    },
-    {
-        label: 'external',
-        icon: 'fa fa-link',
-        path: 'https://marvelcharacters.site'
     }
 ]
 ---

@@ -10,24 +10,18 @@ const Ul = styled.ul`
     & li {
         list-style: none;
         margin: .5rem;
-        padding: 1rem;
     }
 `
 const A = styled.a`
-    background: ${({ theme, color }) => theme.colors[color]};
-    border: 1px solid ${({ theme, color }) => theme.colors[color]};
-    color: white;
+    color: ${({ theme, color }) => theme.colors[color]};
     transition: .2s;
-    padding: .5rem .75rem;
     border-radius: 50%;
     position: relative;
     bottom: 0;
+    font-size: 1.2rem;
     
     &: hover {
-        color: ${({ theme, color }) => theme.colors[color]};
-        background: white;
         bottom: 3px;
-        box-shadow: ${({ theme }) => theme.shadow.sm}
     }
 `
 
@@ -35,7 +29,7 @@ export default function ProjectLinks({ links }) {
     return (
         <Ul>
             {links.map(link => (
-                <li>
+                <li key={links.indexOf(link)}>
                     <A color={link.label.toLowerCase()} href={link.path} target="_blank" noreferrer="true" noopener="true">
                         <i className={link.icon}></i>
                     </A>

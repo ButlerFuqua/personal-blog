@@ -10,7 +10,7 @@ const theme = {
     lnkedin: '#0077B5',
     codepen: '#47cf73',
     repl: '#192333',
-    external: '#A055BF'
+    external: '#D200FF'
   },
   shadow: {
     sm: '0px 3px 7px 2px rgba(0,0,0, .3)'
@@ -42,13 +42,14 @@ export default class MyApp extends App {
     }
 
     a {
-      color: #0070f3;
+      color: ${theme.colors.primary};
       text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
     }
+
 
     img {
       max-width: 100%;
