@@ -70,11 +70,11 @@ export default function Layout({ children, home, test }) {
                     {
                         !home && (
                             <BackToHome>
-                                <Link href={pathname.indexOf('/projects/') > -1 ? '/work' : '/'}>
+                                <Link href={pathname.indexOf('/projects/') > -1 ? '/' : '/'}>
                                     <a>
                                         <i style={{ marginRight: '2px' }} className="fa fa-arrow-circle-left" aria-hidden="true"></i>
-                                 Back
-                                 </a>
+                                        Back
+                                    </a>
                                 </Link>
                             </BackToHome>
                         )

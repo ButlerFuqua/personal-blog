@@ -26,7 +26,7 @@ export default function About() {
         <Layout home>
             <Container>
                 <Title>Hey, I'm Butler.</Title>
-                <Info>I'm a full stack developer currently living in Virginia Beach. I made this site to share what I've learned about software development, careers, life and faith.</Info>
+                <Info>I'm a web developer currently living in Kailua, HI. This is my personal site where I share what I want.</Info>
             </Container>
 
             {/* <Container>

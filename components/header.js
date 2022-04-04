@@ -108,20 +108,25 @@ const bannerListItems = [
         color: '#0077B5'
     },
     {
-        icon: 'fab fa-github',
-        link: 'https://www.github.com/butlerfuqua',
-        color: '#24292E'
+        icon: 'fa fa-newspaper',
+        link: 'https://www.blog.butlerfuqua.com/',
+        color: '#333'
     },
-    {
-        icon: 'fab fa-codepen',
-        link: 'https://codepen.io/butlerfuqua',
-        color: '#47cf73'
-    },
-    {
-        icon: 'fa fa-code',
-        link: 'https://repl.it/@butlerfuqua',
-        color: '#192333'
-    }
+    // {
+    //     icon: 'fab fa-github',
+    //     link: 'https://www.github.com/butlerfuqua',
+    //     color: '#24292E'
+    // },
+    // {
+    //     icon: 'fab fa-codepen',
+    //     link: 'https://codepen.io/butlerfuqua',
+    //     color: '#47cf73'
+    // },
+    // {
+    //     icon: 'fa fa-code',
+    //     link: 'https://repl.it/@butlerfuqua',
+    //     color: '#192333'
+    // }
 ]
 
 export default function Header({ name, home }) {

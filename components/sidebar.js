@@ -120,13 +120,13 @@ const Li = styled.li`
 `
 
 const items = [
-    {
-        label: 'Blog',
-        path: '/'
-    },
+    // {
+    //     label: 'Blog',
+    //     path: '/'
+    // },
     {
         label: 'Projects',
-        path: '/projects'
+        path: '/'
     },
     {
         label: 'About',
@@ -136,10 +136,15 @@ const items = [
     //     label: 'Contact',
     //     path: '/contact'
     // },
+    // {
+    //     label: 'Resume',
+    //     icon: 'fa fa-arrow-circle-down',
+    //     path: 'https://docs.google.com/document/d/1CjlbPXBQP9zeULQf5EMcvJdgwlOcKAJ1dXVVfuW6UZM/export?format=pdf'
+    // }
     {
-        label: 'Resume',
-        icon: 'fa fa-arrow-circle-down',
-        path: 'https://docs.google.com/document/d/1CjlbPXBQP9zeULQf5EMcvJdgwlOcKAJ1dXVVfuW6UZM/export?format=pdf'
+        label: 'Blog',
+        icon: 'fa fa-newspaper',
+        path: 'https://blog.butlerfuqua.com/'
     }
 ]
 
